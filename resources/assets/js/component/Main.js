@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
  
 /* An example React component */
 class Main extends Component {
-    render() {
+    render() { //
         return (
             <div>
                 <h3>All Products</h3>
