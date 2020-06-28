@@ -1,5 +1,5 @@
 <?php
-
+use App\Product;
 use Illuminate\Http\Request;
 
 /*
@@ -20,9 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // k-9-10 2
 
 Route::get('products', 'ProductsController@index');
+/**/
+//Route::get('products', function(){	return response(['Product1', 'Product2', 'Product2'], 200);});
+//Route::get('products', function(){return response(Product::all(),200);});
  
-Route::get('products/{product}', 'ProductsController@show');
- 
+//Route::get('products/{product}', 'ProductsController@show');
+Route::get('products/{product}', function ($productId){
+	return response(Product::find($productId),200);
+});
+
+
 Route::post('products','ProductsController@store');
  
 Route::put('products/{product}','ProductsController@update');

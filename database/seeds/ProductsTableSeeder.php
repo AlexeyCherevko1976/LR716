@@ -1,4 +1,5 @@
 <?php
+use App\Product;
 
 use Illuminate\Database\Seeder;
 
@@ -12,9 +13,10 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
  
-        $faker = \Faker\Factory::create();
+        //$faker = \Faker\Factory::create();
  
         // Create 50 product records
+        /*
         for ($i = 0; $i < 50; $i++) {
             Product::create([
                 'title' => $faker->title,
@@ -23,5 +25,6 @@ class ProductsTableSeeder extends Seeder
                 'availability' => $faker->boolean(50)
             ]);
         }        //
+        */
     }
 }
