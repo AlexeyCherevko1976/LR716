@@ -9,9 +9,10 @@
     </head>
     <body>
     <h2 style="text-align: center"> Laravel and React2 application </h2>
-        <div id="root"></div>
+        
         <div id="example" class="example"></div>
         <div id="example2" class="example2"></div>
+        <div id="root" class="root"></div>
         <script src="{{mix('js/app.js')}}" ></script>
         <!-- <script src="{{url('js/example2.js')}}" ></script> -->
     </body>

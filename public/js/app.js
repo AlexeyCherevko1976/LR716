@@ -28630,7 +28630,7 @@ __webpack_require__(/*! ./components/Main */ "./resources/js/components/Main.js"
 /*!*****************************************!*\
   !*** ./resources/js/components/Main.js ***!
   \*****************************************/
-/*! no exports provided */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28639,7 +28639,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module './Product'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module './AddProduct'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28663,6 +28667,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 /* Main Component */
 
 var Main = /*#__PURE__*/function (_Component) {
@@ -28678,8 +28684,10 @@ var Main = /*#__PURE__*/function (_Component) {
     _this = _super.call(this); //Initialize the state in the constructor
 
     _this.state = {
-      products: []
+      products: [],
+      currentProduct: null
     };
+    _this.handleAddProduct = _this.handleAddProduct.bind(_assertThisInitialized(_this));
     return _this;
   }
   /*componentDidMount() is a lifecycle method
@@ -28705,6 +28713,13 @@ var Main = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderProducts",
     value: function renderProducts() {
+      var _this3 = this;
+
+      var listStyle = {
+        listStyle: 'none',
+        fontSize: '18px',
+        lineHeight: '1.8em'
+      };
       return this.state.products.map(function (product) {
         return (
           /*#__PURE__*/
@@ -28713,21 +28728,89 @@ var Main = /*#__PURE__*/function (_Component) {
            * attribute that is unique for each list item
           */
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            style: listStyle,
+            onClick: function onClick() {
+              return _this3.handleClick(product);
+            },
             key: product.id
           }, product.title)
         );
       });
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(product) {
+      //handleClick is used to set the state
+      this.setState({
+        currentProduct: product
+      });
+    }
+  }, {
+    key: "handleAddProduct",
+    value: function handleAddProduct(product) {
+      var _this4 = this;
+
+      product.price = Number(product.price);
+      /*Fetch API for post request */
+
+      fetch('api/products/', {
+        method: 'post',
+
+        /* headers are important*/
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(product)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this4.setState(function (prevState) {
+          return {
+            products: prevState.products.concat(data),
+            currentProduct: data
+          };
+        });
+      }); //update the state of products and currentProduct
+    }
+  }, {
     key: "render",
     value: function render() {
-      /* Some css code has been removed for brevity */
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProducts()));
+      var _divStyle;
+
+      var mainDivStyle = {
+        display: "flex",
+        flexDirection: "row"
+      };
+      var divStyle = (_divStyle = {
+        justifyContent: "flex-start",
+        padding: '10px',
+        width: '35%',
+        background: '#f0f0f0'
+      }, _defineProperty(_divStyle, "padding", '20px 20px 20px 20px'), _defineProperty(_divStyle, "margin", '30px 10px 10px 30px'), _divStyle);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: mainDivStyle
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: divStyle
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All products "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProducts())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module './Product'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+        product: this.state.currentProduct
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module './AddProduct'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+        onAdd: this.handleAddProduct
+      })));
     }
   }]);
 
   return Main;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Main);
+/* The if statement is required so as to Render the component 
+ * on pages that have a div with an ID of "root";  
+ */
+
+if (document.getElementById('root')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById('root'));
+}
 
 /***/ }),
 
