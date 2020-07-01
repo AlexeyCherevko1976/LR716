@@ -10,7 +10,14 @@
     <body>
     <h2 style="text-align: center"> Laravel and React2 application </h2>
         
-        <div id="example" class="example"></div>
+        <div id="example" class="example">
+            <?php
+            foreach($products as $product){
+                echo $product->title.' - ';
+                echo $product->price.'; ';
+            }
+            ?>
+        </div>
         <div id="example2" class="example2"></div>
         <div id="root" class="root"></div>
         <script src="{{mix('js/app.js')}}" ></script>

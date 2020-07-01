@@ -1,5 +1,6 @@
 <?php
-
+use App\Product;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +13,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	
+    //$products=Product::all();
+    //$products=Product::orderBy('price', 'asc')->get();
+    $products=DB::table('products')->get();
+
+    return view('welcome', ['products'=>$products]);
 });
