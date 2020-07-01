@@ -28635,12 +28635,11 @@ __webpack_require__(/*! ./components/Main */ "./resources/js/components/Main.js"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Main; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module './Product'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module './AddProduct'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28668,112 +28667,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
-/* Main Component */
-
 var Main = /*#__PURE__*/function (_Component) {
   _inherits(Main, _Component);
 
   var _super = _createSuper(Main);
 
   function Main() {
-    var _this;
-
     _classCallCheck(this, Main);
 
-    _this = _super.call(this); //Initialize the state in the constructor
-
-    _this.state = {
-      products: [],
-      currentProduct: null
-    };
-    _this.handleAddProduct = _this.handleAddProduct.bind(_assertThisInitialized(_this));
-    return _this;
+    return _super.apply(this, arguments);
   }
-  /*componentDidMount() is a lifecycle method
-   * that gets called after the component is rendered
-   */
-
 
   _createClass(Main, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      /* fetch API in action */
-      fetch('/api/products').then(function (response) {
-        return response.json();
-      }).then(function (products) {
-        //Fetched product is stored in the state
-        _this2.setState({
-          products: products
-        });
-      });
-    }
-  }, {
-    key: "renderProducts",
-    value: function renderProducts() {
-      var _this3 = this;
-
-      var listStyle = {
-        listStyle: 'none',
-        fontSize: '18px',
-        lineHeight: '1.8em'
-      };
-      return this.state.products.map(function (product) {
-        return (
-          /*#__PURE__*/
-
-          /* When using list you need to specify a key
-           * attribute that is unique for each list item
-          */
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            style: listStyle,
-            onClick: function onClick() {
-              return _this3.handleClick(product);
-            },
-            key: product.id
-          }, product.title)
-        );
-      });
-    }
-  }, {
-    key: "handleClick",
-    value: function handleClick(product) {
-      //handleClick is used to set the state
-      this.setState({
-        currentProduct: product
-      });
-    }
-  }, {
-    key: "handleAddProduct",
-    value: function handleAddProduct(product) {
-      var _this4 = this;
-
-      product.price = Number(product.price);
-      /*Fetch API for post request */
-
-      fetch('api/products/', {
-        method: 'post',
-
-        /* headers are important*/
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(product)
-      }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        _this4.setState(function (prevState) {
-          return {
-            products: prevState.products.concat(data),
-            currentProduct: data
-          };
-        });
-      }); //update the state of products and currentProduct
-    }
-  }, {
     key: "render",
     value: function render() {
       var _divStyle;
@@ -28792,24 +28697,17 @@ var Main = /*#__PURE__*/function (_Component) {
         style: mainDivStyle
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         style: divStyle
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All products "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.renderProducts())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module './Product'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
-        product: this.state.currentProduct
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module './AddProduct'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
-        onAdd: this.handleAddProduct
-      })));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " All products "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null))));
     }
   }]);
 
   return Main;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Main);
-/* The if statement is required so as to Render the component 
- * on pages that have a div with an ID of "root";  
- */
 
-if (document.getElementById('root')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById('root'));
+
+if (document.getElementById('example')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main, null), document.getElementById('example'));
 }
 
 /***/ }),
