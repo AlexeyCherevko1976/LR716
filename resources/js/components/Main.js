@@ -23,7 +23,7 @@ export default class Main extends Component {
         <div>
           <div style= {mainDivStyle}>
             <div style={divStyle}>
-                <h3> All products </h3>
+                <h3> All products this</h3>
                   <ul>
 
                   </ul> 
