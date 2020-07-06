@@ -17,30 +17,28 @@ class Main extends Component {
   } 
  
   componentDidMount() {
-fetch('/api/products')  
-  .then(  
-    function(response) {  
-      if (response.status !== 200) {  
-        console.log('Looks like there was a problem. Status Code: ' +  
-          response.status);  
-        return;  
-      }
-
-      // Examine the text in the response  
-      response.json().then(function(data) {  
-        console.log(data);  
-      });  
-    }  
-  )  
-  .catch(function(err) {  
-    console.log('Fetch Error :-S', err);  
-  });
+    /* fetch API in action */
+    fetch('/api/products')
+        .then(response => {
+            return response.json();
+        })
+        .then(products => {
+            //Fetched product is stored in the state
+            this.setState({ products });
+        });
   }
+ renderProducts() {
+      return "renderProducts";
+  }  
 
     render() { //
         return (
             <div>
                 <h3>All Products 7</h3>
+                <div>
+                  { this.renderProducts() }
+                </div>
+
             </div>
         );
     }

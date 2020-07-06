@@ -28688,25 +28688,28 @@ var Main = /*#__PURE__*/function (_Component) {
   _createClass(Main, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
+      /* fetch API in action */
       fetch('/api/products').then(function (response) {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' + response.status);
-          return;
-        } // Examine the text in the response  
-
-
-        response.json().then(function (data) {
-          console.log(data);
+        return response.json();
+      }).then(function (products) {
+        //Fetched product is stored in the state
+        _this2.setState({
+          products: products
         });
-      })["catch"](function (err) {
-        console.log('Fetch Error :-S', err);
       });
+    }
+  }, {
+    key: "renderProducts",
+    value: function renderProducts() {
+      return "renderProducts";
     }
   }, {
     key: "render",
     value: function render() {
       //
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 7"));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderProducts()));
     }
   }]);
 
