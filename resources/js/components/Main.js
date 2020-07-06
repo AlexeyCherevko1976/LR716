@@ -1,44 +1,22 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-export default class Main extends Component {
-    render() {
-   const mainDivStyle =  {
-        display: "flex",
-        flexDirection: "row"
-    }
-    
-    const divStyle = {
-       
-        justifyContent: "flex-start",
-        padding: '10px',
-        width: '35%',
-        background: '#f0f0f0',
-        padding: '20px 20px 20px 20px',
-        margin: '30px 10px 10px 30px'
-        
-    }
-
-    return (
-        <div>
-          <div style= {mainDivStyle}>
-            <div style={divStyle}>
-                <h3> All products this</h3>
-                  <ul>
-
-                  </ul> 
-
-            </div> 
-
-          </div>
-              
-        </div>
-      
-    );
-  
+ 
+/* An example React component */
+class Main extends Component {
+    render() { //
+        return (
+            <div>
+                <h3>All Products 3</h3>
+            </div>
+        );
     }
 }
-
+ 
+export default Main;
+ 
+/* The if statement is required so as to Render the component on pages that have a div with an ID of "root";  
+*/
+ 
 if (document.getElementById('example')) {
     ReactDOM.render(<Main />, document.getElementById('example'));
 }
