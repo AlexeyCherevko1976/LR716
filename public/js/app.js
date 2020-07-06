@@ -28671,9 +28671,18 @@ var Main = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Main);
 
   function Main() {
+    var _this;
+
     _classCallCheck(this, Main);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this); //Initialize the state in the constructor
+
+    _this.state = {
+      products: [],
+      currentProduct: null
+    }; //this.handleAddProduct = this.handleAddProduct.bind(this);
+
+    return _this;
   }
 
   _createClass(Main, [{

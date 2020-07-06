@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
  
 /* An example React component */
 class Main extends Component {
+
+  constructor() {
+  
+    super();
+    //Initialize the state in the constructor
+    this.state = {
+        products: [],
+        currentProduct: null
+    
+    }
+     //this.handleAddProduct = this.handleAddProduct.bind(this);
+  } 
+ 
     render() { //
         return (
             <div>
