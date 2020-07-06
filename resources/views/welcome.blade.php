@@ -8,12 +8,16 @@
         <link href="{{url('css/app.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <h2 style="text-align: center"> Laravel and React2 application .</h2>
-        
-        <div id="example" class="example">
+    
+    <div style="display: flex; flex-flow: row wrap;justify-content: center; align-items: center; height: 600px; background: aqua;">
+
+        <h2 style="display: flex; justify-content: center; align-items: center; height:100px;width: 700px;  background: olive;"> Laravel and React2 application </h2>  
+
+        <div id="example" class="example"  style="display: flex; justify-content: center; align-items: center; height:100px;width: 700px;  background: olive;">
 
         </div>
-        <div id="example2" class="example2">            
+
+        <div id="example2" class="example2" style="display: flex; justify-content: center; align-items: center; height:100px;width: 700px;  background: gold; margin: 50px;">            
             <?php
             foreach($products as $product){
                 echo $product->title.' - ';
@@ -21,7 +25,9 @@
             }
             ?></div>
         <div id="root" class="root"></div>
-        <script src="{{mix('js/app.js')}}" ></script>
+    </div>
+        <script src="http://lr716/js/app.js" ></script>
+        <!-- <script src="{{url('js/app.js')}}" ></script> -->
         <!-- <script src="{{url('js/example2.js')}}" ></script> -->
     </body>
 </html>
