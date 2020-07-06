@@ -28686,6 +28686,12 @@ var Main = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Main, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var promise = fetch('/api/products');
+      console.log(promise);
+    }
+  }, {
     key: "render",
     value: function render() {
       //

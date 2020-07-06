@@ -16,6 +16,11 @@ class Main extends Component {
      //this.handleAddProduct = this.handleAddProduct.bind(this);
   } 
  
+  componentDidMount() {
+    let promise=fetch('/api/products');
+    console.log(promise);
+  }
+
     render() { //
         return (
             <div>
