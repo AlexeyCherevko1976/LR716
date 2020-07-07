@@ -28703,13 +28703,14 @@ var Main = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderProducts",
     value: function renderProducts() {
-      return "renderProducts";
+      var products = this.state.products;
+      return JSON.stringify(products);
     }
   }, {
     key: "render",
     value: function render() {
       //
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderProducts()));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 11"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderProducts()));
     }
   }]);
 
