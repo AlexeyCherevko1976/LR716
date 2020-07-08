@@ -13,7 +13,7 @@
 
         <h2 style="display: flex; justify-content: center; align-items: center; height:100px;width: 700px;  background: olive;"> Laravel and React2 application </h2>  
 
-        <div id="example" class="example"  style="display: flex; justify-content: center; align-items: center; height:100px;width: 700px;  background: olive;">
+        <div id="example" class="example"  style="display: flex; justify-content: center; align-items: center; height:400px;width: 700px;  background: olive;">
 
         </div>
 

@@ -28703,14 +28703,22 @@ var Main = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderProducts",
     value: function renderProducts() {
-      var products = this.state.products;
-      return JSON.stringify(products);
+      var listStyle = {
+        fontSize: '24px'
+      };
+      var products = this.state.products; //return JSON.stringify(products);
+
+      return this.state.products.map(function (product) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          style: listStyle
+        }, product.title, " ");
+      });
     }
   }, {
     key: "render",
     value: function render() {
       //
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 11"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderProducts()));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "All Products 12"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderProducts()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u0427\u0435\u0431\u0443\u0440\u0430\u0448\u043A\u0430"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u041A\u0440\u043E\u043A\u043E\u0434\u0438\u043B \u0413\u0435\u043D\u0430"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\u0428\u0430\u043F\u043E\u043A\u043B\u044F\u043A")));
     }
   }]);
 
