@@ -15,3 +15,4 @@
 //require('./components/Example');
 //require('./components/Example2');
 require('./components/Main');
+require('./components/Clock');

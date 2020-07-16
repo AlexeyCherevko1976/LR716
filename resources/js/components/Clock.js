@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
  
 /* An example React component */
-class Main extends Component {
+class Clock extends Component {
 
   constructor() {
   
@@ -43,9 +43,9 @@ class Main extends Component {
     render() { //
         return (
             <div>
-                <h3>All Products 15</h3>
+                <h3>Clock</h3>
                 <div>
-                  { this.renderProducts() }
+                  
                 </div>
 
             </div>
@@ -53,11 +53,10 @@ class Main extends Component {
     }
 }
  
-export default Main;
+export default Clock;
  
-/* The if statement is required so as to Render the component on pages that have a div with an ID of "root";  
-*/
+
  
-if (document.getElementById('example')) {
-    ReactDOM.render(<Main />, document.getElementById('example'));
+if (document.getElementById('clock')) {
+    ReactDOM.render(<Clock />, document.getElementById('clock'));
 }
